@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CityAdminPortal</title>
+    <link rel="stylesheet" href="scss/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script defer src="js/script.js"></script>
 </head>
+
 <body>
-    
+    <header class="header">
+        <nav class="header__navbar">
+            <a class="header__logo" href="#">Admin City</a>
+            <div class="header__box">
+                <ul class="header__applications">
+                    <li><a class="header__item" href="#">Admin City</a></li>
+                    <li><a class="header__item" href="#">Заявки</a></li>
+                    <div class="header__filter-block">
+                        <div class="header__filter-block-header">
+                            <a class="header__filter-block-type" href="#">Мои заявки</a>
+                            <div class="header__filter-block-icon"></div>
+                        </div>
+                        <div class="header__filter-dropdown">
+                            <div class="header__filter-dropdown-item"><a href="#">Добавить</a></div>
+                            <div class="header__filter-dropdown-item"><a href="#">Мои заявки <span>(4)</span></a></div>
+                        </div>
+                    </div>
+                    <li><a class="header__item" href="#">Управление заявками</a></li>
+                </ul>
+                <div class="header__search">
+                    <div class="header__filter-block">
+                        <div class="header__filter-block-header">
+                            <a class="header__filter-block-type" href="#">Аккаунт</a>
+                            <div class="header__filter-block-icon"></div>
+                        </div>
+                        <div class="header__filter-dropdown">
+                            <div class="header__filter-dropdown-item"><a href="#">Вход</a></div>
+                            <div class="header__filter-dropdown-item"><a href="#">Регистрация</a></div>
+                        </div>
+                    </div>
+                    <input class="header__input" placeholder="Поиск заявок" type="text">
+                    <button class="header__btn">Поиск</button>
+                </div>
+            </div>
+            <div class="header__burger-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
 </body>
+
 </html>
