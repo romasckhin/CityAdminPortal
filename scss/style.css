@@ -17,6 +17,10 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -215,11 +219,9 @@ body {
   font-size: 14px;
   transition: background-color 0.2s;
   text-transform: capitalize;
-  cursor: pointer;
-}
-.header__filter-dropdown-item a {
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 @media (any-hover: hover) {
   .header__filter-dropdown-item:hover {
