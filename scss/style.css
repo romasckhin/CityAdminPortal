@@ -21,9 +21,61 @@ a {
   text-decoration: none;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-y: auto;
+}
+
+td, th {
+  border: 2px solid rgba(183, 202, 176, 0.2862745098);
+  text-align: left;
+  padding: 8px;
+}
+
+@media (max-width: 750px) {
+  th, td {
+    display: block;
+    width: 100%;
+  }
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.status-process {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px 9px;
+  background-color: rgba(237, 181, 41, 0.7098039216);
+  border-radius: 5px;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.status-done {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px 9px;
+  background-color: rgba(19, 191, 42, 0.6980392157);
+  border-radius: 5px;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.status-created {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px 9px;
+  background-color: rgba(61, 47, 216, 0.6784313725);
+  border-radius: 5px;
+  margin-left: 10px;
+  color: #fff;
 }
 
 .header {
@@ -253,14 +305,6 @@ a {
   font-size: 24px;
   margin-bottom: 15px;
 }
-.applications__status {
-  font-size: 15px;
-  font-weight: 600;
-  padding: 5px 9px;
-  background-color: #d7e209;
-  border-radius: 5px;
-  margin-left: 10px;
-}
 .applications__descr {
   margin-bottom: 15px;
   color: red;
@@ -270,7 +314,7 @@ a {
 }
 
 .add {
-  padding: 120px 5px 0px 5px;
+  padding: 120px 5px 20px 5px;
 }
 .add__form {
   display: flex;
@@ -308,5 +352,39 @@ a {
 @media (any-hover: hover) {
   .add__btn:hover {
     background-color: rgba(53, 54, 66, 0.786);
+  }
+}
+
+.myAplication {
+  padding: 120px 5px 20px 5px;
+}
+.myAplication__title {
+  margin-bottom: 30px;
+}
+.myAplication__img {
+  max-width: 300px;
+}
+.myAplication__filter-block-type {
+  padding: 10px 14px;
+  background-color: #6f6f6f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+}
+@media (any-hover: hover) {
+  .myAplication__filter-block-type:hover {
+    background-color: #848484;
+  }
+}
+.myAplication__filter-dropdown-item {
+  padding: 5px;
+  background-color: rgba(229, 94, 94, 0.968627451);
+  color: #000;
+  transition: background-color 0.2s;
+}
+@media (any-hover: hover) {
+  .myAplication__filter-dropdown-item:hover {
+    color: #fff;
   }
 }/*# sourceMappingURL=style.css.map */
