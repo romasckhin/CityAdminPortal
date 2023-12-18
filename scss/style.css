@@ -379,12 +379,13 @@ tr:nth-child(even) {
 }
 .myAplication__filter-dropdown-item {
   padding: 5px;
-  background-color: rgba(229, 94, 94, 0.968627451);
+  background-color: rgba(255, 255, 255, 0.968627451);
   color: #000;
   transition: background-color 0.2s;
+  color: #000000;
 }
 @media (any-hover: hover) {
   .myAplication__filter-dropdown-item:hover {
-    color: #fff;
+    background-color: #cecece;
   }
 }/*# sourceMappingURL=style.css.map */

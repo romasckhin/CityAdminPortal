@@ -398,7 +398,7 @@ tr:nth-child(even) {
     }
 }
 
-// --------------- myAplication --------------- 
+// --------------- myAplication and aplication-control --------------- 
 
 .myAplication {
     padding: 120px 5px 20px 5px;
@@ -427,12 +427,13 @@ tr:nth-child(even) {
 
     &__filter-dropdown-item {
         padding: 5px;
-        background-color: #e55e5ef7;
+        background-color: #fffffff7;
         color: #000;
         transition: background-color .2s;
+        color: #000000;
         @media (any-hover: hover) {
             &:hover {
-                color: #fff;
+                background-color: #cecece;
             }
         }
     }
