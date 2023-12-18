@@ -301,3 +301,55 @@ a {
        opacity: 0.5;
     }
 }
+
+// --------------- Add ---------------
+
+.add {
+    padding: 120px 5px 0px 5px;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__input-tema {
+        padding: 7px;
+    }
+
+    &__input-img {
+        border: 1px solid rgba(0, 0, 0, 0.214);
+        padding: 7px;
+    }
+
+    label {
+        font-weight: 100;
+        margin-bottom: 6px;
+    }
+
+    input {
+        margin-bottom: 25px;
+    }
+
+    textarea {
+        margin-bottom: 25px;
+    }
+
+    &__btn {
+        padding: 10px;
+        background-color: #383d42;
+        color: #fff;
+        border: none;
+        font-size: 20px;
+        transition: background-color .2s;
+        cursor: pointer;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: rgba(53, 54, 66, 0.786);
+            }
+        }
+    }
+}

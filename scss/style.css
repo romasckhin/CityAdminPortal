@@ -267,4 +267,46 @@ a {
 }
 .applications__date {
   opacity: 0.5;
+}
+
+.add {
+  padding: 120px 5px 0px 5px;
+}
+.add__form {
+  display: flex;
+  flex-direction: column;
+}
+.add__title {
+  margin-bottom: 30px;
+}
+.add__input-tema {
+  padding: 7px;
+}
+.add__input-img {
+  border: 1px solid rgba(0, 0, 0, 0.214);
+  padding: 7px;
+}
+.add label {
+  font-weight: 100;
+  margin-bottom: 6px;
+}
+.add input {
+  margin-bottom: 25px;
+}
+.add textarea {
+  margin-bottom: 25px;
+}
+.add__btn {
+  padding: 10px;
+  background-color: #383d42;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+@media (any-hover: hover) {
+  .add__btn:hover {
+    background-color: rgba(53, 54, 66, 0.786);
+  }
 }/*# sourceMappingURL=style.css.map */
