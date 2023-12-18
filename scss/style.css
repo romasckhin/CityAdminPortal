@@ -331,7 +331,6 @@ tr:nth-child(even) {
   padding: 7px;
 }
 .add label {
-  font-weight: 100;
   margin-bottom: 6px;
 }
 .add input {
