@@ -20,20 +20,20 @@
             <div class="container">
                 <h1 class="applications__title">Заявки</h1>
                 <div class="applications__box">
-                    <img src="img/image-1.jpg" alt="img" class="applications__image">
+                    <img src="src/img/image-1.jpg" alt="img" class="applications__image">
                     <div class="applications__descr-min">Убрать мусор<span class="status-process">В
                             процессе</span></div>
                     <div class="applications__descr">Тут давно не кто не уберал, срочно!!!</div>
                     <div class="applications__date">Добавлено: 24.12.2021</div>
                 </div>
                 <div class="applications__box">
-                    <img src="img/image-2.jpg" alt="img" class="applications__image">
+                    <img src="src/img/image-2.jpg" alt="img" class="applications__image">
                     <div class="applications__descr-min">Убрать мусор<span class="status-done">Выполнено</span></div>
                     <div class="applications__descr">Тут давно не кто не уберал, срочно!!!</div>
                     <div class="applications__date">Добавлено: 24.12.2021</div>
                 </div>
                 <div class="applications__box">
-                    <img src="img/image-3.jpg" alt="img" class="applications__image">
+                    <img src="src/img/image-3.jpg" alt="img" class="applications__image">
                     <div class="applications__descr-min">Убрать мусор<span class="status-done">Выполнено</span></div>
                     <div class="applications__descr">Тут давно не кто не уберал, срочно!!!</div>
                     <div class="applications__date">Добавлено: 24.12.2021</div>

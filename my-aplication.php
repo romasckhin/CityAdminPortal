@@ -26,7 +26,7 @@
                     <th>Действия</th>
                 </tr>
                 <tr>
-                    <td><img src="img/image-1.jpg" class="myAplication__img alt=""></td>
+                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
                     <td>Убрать мусор</td>
                     <td>Тут давно не кто не уберал, срочно!!!</td>
                     <td><span class="status-process">В процессе</span></td>
@@ -46,7 +46,7 @@
                 </tr>
 
                 <tr>
-                    <td><img src="img/image-1.jpg" class="myAplication__img alt=""></td>
+                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
                     <td>Убрать мусор</td>
                     <td>Тут давно не кто не уберал, срочно!!!</td>
                     <td><span class="status-done">Выполнено</span></td>
@@ -66,7 +66,7 @@
                 </tr>
 
                 <tr>
-                    <td><img src="img/image-1.jpg" class="myAplication__img alt=""></td>
+                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
                     <td>Убрать мусор</td>
                     <td>Тут давно не кто не уберал, срочно!!!</td>
                     <td><span class="status-created">Создано</span></td>
