@@ -326,6 +326,7 @@ tr:nth-child(even) {
 
     &__image {
         width: 100%;
+        object-fit: cover;
         max-height: 400px;
         margin-bottom: 15px;
     }

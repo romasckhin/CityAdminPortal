@@ -5,7 +5,7 @@
     <?php
         require_once __DIR__ .  '/components/head.php';
     ?>
-    <title>Add applications</title>
+    <title>Add Tickets</title>
 </head>
 
 <body>

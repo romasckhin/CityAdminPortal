@@ -297,6 +297,8 @@ tr:nth-child(even) {
 }
 .applications__image {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-height: 400px;
   margin-bottom: 15px;
 }
