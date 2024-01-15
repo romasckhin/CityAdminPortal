@@ -8,6 +8,9 @@
     <title>CityAdminPortal</title>
 </head>
 
+<?php
+    require_once __DIR__ . '/database/db.php';
+?>
 
 <body>
 

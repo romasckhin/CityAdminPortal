@@ -45,6 +45,14 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.db-error {
+    padding: 20px;
+    background-color: #eaeaea;
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
