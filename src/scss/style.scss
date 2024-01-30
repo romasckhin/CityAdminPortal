@@ -360,6 +360,14 @@ tr:nth-child(even) {
 .add {
     padding: 120px 5px 20px 5px;
 
+    &__validate {
+        padding: 13px;
+        background-color: #f1f1f1;
+        color: rgb(255, 25, 25);
+        font-size: 15px;
+        font-weight: bold;
+    }
+
     &__form {
         display: flex;
         flex-direction: column;
@@ -371,6 +379,11 @@ tr:nth-child(even) {
 
     &__input-tema {
         padding: 7px;
+    }
+
+    &__input-color {
+        border: 1px solid rgb(255, 58, 58);
+        box-shadow: 0 0 4px rgba(255, 58, 58, 0.5);
     }
 
     &__input-img {
