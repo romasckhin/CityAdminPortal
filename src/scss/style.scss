@@ -360,6 +360,14 @@ tr:nth-child(even) {
 .add {
     padding: 120px 5px 20px 5px;
 
+    &__success {
+        padding: 13px;
+        background-color: #f1f1f1;
+        color: rgb(0, 244, 98);
+        font-size: 15px;
+        font-weight: bold;
+    }
+
     &__validate {
         padding: 13px;
         background-color: #f1f1f1;

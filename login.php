@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +16,21 @@
     
     <?php
         require_once __DIR__ .  '/components/header.php';
+        require_once __DIR__ .  '/app/requires.php';
     ?>
 
     <section class="add">
         <div class="container">
+
+            <?php
+                if (isset($_SESSION['success'])) {
+            ?>
+                <div class='add__success'><?=$_SESSION['success']?></div>
+            <?php
+                unset($_SESSION['success']);
+                }
+            ?>
+
             <h1 class="add__title">Авторизация</h1>
             <form class="add__form">
                 <label>E-mail</label>

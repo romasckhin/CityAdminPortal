@@ -26,7 +26,7 @@ session_start();
                 <?php
                     if(isset($_SESSION['fields'])) {
                 ?>
-                    <div class='add__validate'>Проверьте правильность заполнение полей</div>
+                    <div class='add__validate'>Проверьте правильность заполнение полей или данные e-mail уже существует</div>
                 <?php
                     $fields = $_SESSION['fields'];
                     unset($_SESSION['fields']);
