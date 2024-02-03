@@ -29,7 +29,26 @@ if (empty($password)) {
     $error = true;
 }
 
+
+$query = $db->prepare("SELECT * FROM `users` WHERE `email` = :email");
+$query->execute(['email' => $email]);
+$user = $query->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    $fields['email']['error'] = true;
+    $error = true;
+}
+
+if (!password_verify($password, $user['password'])) {
+    $fields['password']['error'] = true;
+    $error = true;
+}
+
 if ($error) {
     $_SESSION['fields'] = $fields;
     header('Location: /login.php');
+}
+else {
+    $_SESSION['user'] = $user['id'];
+    header('Location: /');
 }
