@@ -274,11 +274,14 @@ tr:nth-child(even) {
   transform: translateY(5px);
 }
 .header__filter-dropdown-item {
+  width: 100%;
+  background: none;
+  border: none;
   padding: 10px;
   font-size: 14px;
   transition: background-color 0.2s;
   text-transform: capitalize;
-  color: #fff;
+  color: #f7f7f7;
   text-decoration: none;
   cursor: pointer;
 }

@@ -24,16 +24,40 @@
                 <div class="header__search">
                     <div class="header__filter-block">
                         <div class="header__filter-block-header">
-                            <span class="header__filter-block-type" href="#">Аккаунт</span>
+                        <?php
+                            $user = false;
+                            if(isset($_SESSION['user'])) {
+                                $query = $db->prepare("SELECT * FROM `users` WHERE `id` = :id");
+                                $query->execute([
+                                    'id' => $_SESSION['user']
+                                ]);
+                                $user = $query->fetch(PDO::FETCH_ASSOC);       
+                            }              
+                        ?>
+                            <span class="header__filter-block-type" href="#">
+                                <?= !$user ? 'Аккаунт' : $user['name'] ?>
+                            </span>
                             <div class="header__filter-block-icon"></div>
                         </div>
                         <div class="header__filter-dropdown">
+                        <?php
+                            if (!$user) {   
+                        ?>
                             <a href="/login.php">
                                 <div class="header__filter-dropdown-item">Вход</div>
                             </a>
                             <a href="/register.php">
                                 <div class="header__filter-dropdown-item">Регистрация</div>
                             </a>
+                        <?php        
+                            } else {
+                        ?>
+                            <form action="/../actions/user/logout.php" method='POST'>
+                                <button class="header__filter-dropdown-item" >Выход</button>
+                            </form>
+                        <?php   
+                            }
+                        ?>
                         </div>
                     </div>
                     <input class="header__input" placeholder="Поиск заявок" type="text">
