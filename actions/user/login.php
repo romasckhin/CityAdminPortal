@@ -47,8 +47,9 @@ if (!password_verify($password, $user['password'])) {
 if ($error) {
     $_SESSION['fields'] = $fields;
     header('Location: /login.php');
+    exit();
 }
-else {
-    $_SESSION['user'] = $user['id'];
-    header('Location: /');
-}
+
+$_SESSION['user'] = $user['id'];
+header('Location: /');
+

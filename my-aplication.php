@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,72 +22,51 @@
         <div class="container">
             <h1 class="myAplication__title">Мои заявки</h1>
             <table>
-                <tr>
-                    <th>Изображение</th>
-                    <th>Название</th>
-                    <th>Описание</th>
-                    <th>Статус</th>
-                    <th>Действия</th>
-                </tr>
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-process">В процессе</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
-                            </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Изображение</th>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-done">Выполнено</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
-                            </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                    <?php
+                        $query = $db->prepare("SELECT * FROM `tickets` WHERE `user_id` = :user_id ");
+                        $query->execute([
+                            'user_id' => $_SESSION['user']
+                        ]);
+                        $tickets = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-created">Создано</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
+                        foreach($tickets as $item) {
+                    ?>
+
+                    <tr>
+                        <td><img src="<?=$item['image']?>" class="myAplication__img alt=""></td>
+                        <td><?=$item['title']?>"</td>
+                        <td><?=$item['description']?>"</td>
+                        <td><span class="status-process">В процессе</span></td>
+                        <td>
+                            <div class="header__filter-block">
+                                <div class="header__filter-block-header">
+                                    <span class="myAplication__filter-block-type" href="#">Действия</span>
+                                    <div class="header__filter-block-icon"></div>
+                                </div>
+                                <div class="header__filter-dropdown">
+                                    <a href="#">
+                                        <div class="myAplication__filter-dropdown-item">Удалить</div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+
+                    <?php
+                        }
+                    ?>
+                </tbody>
             </table>
         </div>
     </section>

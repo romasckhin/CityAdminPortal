@@ -59,6 +59,7 @@ if ($password !== $password_reset || empty($password) || empty($password_reset))
 if ($error) {
     $_SESSION['fields'] = $fields;
     header('Location: /register.php');
+    exit();
 }
 
 $query = $db->prepare(
