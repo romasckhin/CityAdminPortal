@@ -8,7 +8,7 @@ $config = require_once __DIR__ . '/../../config/app.php';
 if(!isset($_SESSION['user'])) {
     $_SESSION['login_error'] = true;
     header('Location: /add-aplication.php');
-    exti();
+    exit();
 }
 
 $title = $_POST['title'];
