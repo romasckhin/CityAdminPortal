@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION['user'])) {
+        header('Location: /login.php');
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +42,7 @@
                     <?php
                         $query = $db->prepare("SELECT * FROM `tickets` WHERE `user_id` = :user_id ");
                         $query->execute([
-                            'user_id' => $_SESSION['user'] ?? NULL
+                            'user_id' => $_SESSION['user']
                         ]);
                         $tickets = $query->fetchAll(PDO::FETCH_ASSOC);
 

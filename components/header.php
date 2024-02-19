@@ -5,7 +5,20 @@
                 <ul class="header__applications">
                     <li><a class="header__item" href="/">Admin City</a></li>
                     <li><a class="header__item" href="/">Заявки</a></li>
-                    <div class="header__filter-block">
+                    <?php
+                            $user = false;
+                            if(isset($_SESSION['user'])) {
+                                $query = $db->prepare("SELECT * FROM `users` WHERE `id` = :id");
+                                $query->execute([
+                                    'id' => $_SESSION['user']
+                                ]);
+                                $user = $query->fetch(PDO::FETCH_ASSOC);       
+                            }              
+                    ?>
+                    <?php
+                        if ($user) {
+                    ?>
+                     <div class="header__filter-block">
                         <div class="header__filter-block-header">
                             <span class="header__filter-block-type" href="#">Мои заявки</span>
                             <div class="header__filter-block-icon"></div>
@@ -19,21 +32,14 @@
                             </a>
                         </div>
                     </div>
+                    <?php
+                        }
+                    ?>
                     <li><a class="header__item" href="/aplication-control.php">Управление заявками</a></li>
                 </ul>
                 <div class="header__search">
                     <div class="header__filter-block">
                         <div class="header__filter-block-header">
-                        <?php
-                            $user = false;
-                            if(isset($_SESSION['user'])) {
-                                $query = $db->prepare("SELECT * FROM `users` WHERE `id` = :id");
-                                $query->execute([
-                                    'id' => $_SESSION['user']
-                                ]);
-                                $user = $query->fetch(PDO::FETCH_ASSOC);       
-                            }              
-                        ?>
                             <span class="header__filter-block-type" href="#">
                                 <?= !$user ? 'Аккаунт' : $user['name'] ?>
                             </span>
