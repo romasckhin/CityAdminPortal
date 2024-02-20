@@ -6,16 +6,7 @@
                     <li><a class="header__item" href="/">Admin City</a></li>
                     <li><a class="header__item" href="/">Заявки</a></li>
                     <?php
-                            $user = false;
-                            if(isset($_SESSION['user'])) {
-                                $query = $db->prepare("SELECT * FROM `users` WHERE `id` = :id");
-                                $query->execute([
-                                    'id' => $_SESSION['user']
-                                ]);
-                                $user = $query->fetch(PDO::FETCH_ASSOC);       
-                            }              
-                    ?>
-                    <?php
+                        $config = require __DIR__ . '/../config/app.php';
                         if ($user) {
                     ?>
                      <div class="header__filter-block">
@@ -34,8 +25,12 @@
                     </div>
                     <?php
                         }
+                        if ($user && $user['group_id'] === $config['admin_user_group']) {
                     ?>
-                    <li><a class="header__item" href="/aplication-control.php">Управление заявками</a></li>
+                        <li><a class="header__item" href="/aplication-control.php">Управление заявками</a></li>
+                    <?php
+                        }
+                    ?>
                 </ul>
                 <div class="header__search">
                     <div class="header__filter-block">

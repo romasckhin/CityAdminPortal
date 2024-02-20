@@ -8,6 +8,15 @@
 <head>
     <?php
         require_once __DIR__ .  '/components/head.php';
+
+        if (isset($_SESSION['user'])) {
+            $config = require_once __DIR__ . '/config/app.php';
+            if ($user['group_id'] !== $config['admin_user_group']) {
+                header('Location: /');
+                exit();
+            }
+        }
+
     ?>
     <title>Tickets Control</title>
 </head>
