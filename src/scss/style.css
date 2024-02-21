@@ -33,6 +33,12 @@ td, th {
   padding: 8px;
 }
 
+td {
+  max-width: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 @media (max-width: 750px) {
   th, td {
     display: block;

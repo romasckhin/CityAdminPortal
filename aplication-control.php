@@ -31,99 +31,68 @@
         <div class="container">
             <h1 class="myAplication__title">Управление Заявками</h1>
             <table>
-                <tr>
-                    <th>Изображение</th>
-                    <th>Название</th>
-                    <th>Описание</th>
-                    <th>Статус</th>
-                    <th>Действия</th>
-                </tr>
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-process">В процессе</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
-                            </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Выполнено</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">В процессе</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Отклонить</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                <thead> 
+                    <tr>
+                        <th>Изображение</th>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-done">Выполнено</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
+                    <?php
+                        $tickets = $db->query("SELECT * FROM `tickets`")->fetchAll(PDO::FETCH_ASSOC);
+                        $statuses = $db->query("SELECT * FROM `status`")->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        foreach ($tickets as $item) {
+                        $status_id = $item['status_id'];
+                        $status = array_filter($statuses, function($status) use ($status_id){
+                            return $status_id === $status['id'];
+                        });
+                        $status = array_pop($status);
+                    ?>
+                    <tr>
+                        <td><img src="<?= $item['image'] ?>" class="myAplication__img alt=""></td>
+                        <td><?= $item['title'] ?></td>
+                        <td><?= $item['description'] ?></td>
+                        <td><span style="background: <?= $status['background'] ?>; color: <?= $status['color'] ?> " class="status-process"><?= $status['label'] ?></span></td>
+                        <td>    
+                            <div class="header__filter-block">
+                                <div class="header__filter-block-header">
+                                    <span class="myAplication__filter-block-type" href="#">Действия</span>
+                                    <div class="header__filter-block-icon"></div>
+                                </div>
+                                <div class="header__filter-dropdown">
+                                    <form action="/actions/tickets/change_status.php" method='POST'>
+                                        <input type="hidden" name='id' value='<?= $item['id'] ?>'>
+                                        <input type="hidden" name='status' value='<?= $config['status_successfully'] ?>'>
+                                        <button class="myAplication__filter-dropdown-item">Выполнено</button>
+                                    </form>
+                                    <form action="/actions/tickets/change_status.php" method='POST'>
+                                        <input type="hidden" name='id' value='<?= $item['id'] ?>'>
+                                        <input type="hidden" name='status' value='<?= $config['status_in_progress'] ?>'>
+                                        <button class="myAplication__filter-dropdown-item">В процессе</button>
+                                    </form>
+                                    <form action="/actions/tickets/change_status.php" method='POST'>
+                                        <input type="hidden" name='id' value='<?= $item['id'] ?>'>
+                                        <input type="hidden" name='status' value='<?= $config['status_reject'] ?>'>
+                                        <button class="myAplication__filter-dropdown-item">Отклонить</button>
+                                    </form>
+                                    <form action="/actions/tickets/change_status.php" method='POST'>
+                                        <input type="hidden" name='id' value='<?= $item['id'] ?>'>
+                                        <button class="myAplication__filter-dropdown-item">Удалить</button>
+                                </form>
+                                </div>
                             </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Выполнено</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">В процессе</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Отклонить</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    <?php
+                        }
 
-                <tr>
-                    <td><img src="src/img/image-1.jpg" class="myAplication__img alt=""></td>
-                    <td>Убрать мусор</td>
-                    <td>Тут давно не кто не уберал, срочно!!!</td>
-                    <td><span class="status-created">Создано</span></td>
-                    <td>
-                        <div class="header__filter-block">
-                            <div class="header__filter-block-header">
-                                <span class="myAplication__filter-block-type" href="#">Действия</span>
-                                <div class="header__filter-block-icon"></div>
-                            </div>
-                            <div class="header__filter-dropdown">
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Выполнено</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">В процессе</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Отклонить</div>
-                                </a>
-                                <a href="#">
-                                    <div class="myAplication__filter-dropdown-item">Удалить</div>
-                                </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                    ?>
+                </tbody>
             </table>
         </div>
     </section>
