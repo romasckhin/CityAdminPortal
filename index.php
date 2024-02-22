@@ -24,7 +24,24 @@
                 <h1 class="applications__title">Заявки</h1>
                 <div class="applications__wrapper">
                     <?php
-                        $tickets = $db->query("SELECT * FROM `tickets`")->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (isset($_GET['q'])) {
+                            $tickets = $db->prepare("SELECT * FROM `tickets` WHERE `title` LIKE :q ORDER BY `id` DESC");
+                            $tickets->execute([
+                                'q' => "%{$_GET['q']}%"
+                            ]);
+                            $tickets = $tickets->fetchAll(PDO::FETCH_ASSOC);
+                        }
+                        else {
+                            $tickets = $db->query("SELECT * FROM `tickets` ORDER BY `id` DESC")->fetchAll(PDO::FETCH_ASSOC);
+                        }
+
+                        if (empty($tickets)) {
+                    ?>
+                        <div class='add__validate'>По вашему запросу нечего не найдено</div>
+
+                    <?php
+                        }
 
                         $status = $db->query("SELECT * FROM `status`")->fetchAll(PDO::FETCH_ASSOC);
 

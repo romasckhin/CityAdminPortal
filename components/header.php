@@ -61,8 +61,10 @@
                         ?>
                         </div>
                     </div>
-                    <input class="header__input" placeholder="Поиск заявок" type="text">
-                    <button class="header__btn">Поиск</button>
+                    <form action="/" method="GET">
+                        <input class="header__input" name='q' value="<?= $_GET['q'] ?? '' ?>" placeholder="Поиск заявок" type="text">
+                        <button class="header__btn">Поиск</button>
+                    </form>
                 </div>
             </div>
             <div class="header__burger-menu">
